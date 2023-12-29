@@ -3,7 +3,6 @@ describe('Login', () => {
     beforeEach(() => {
         cy.visit('/')
         
-
     });
 
     it.only('Check when valid credentials is provided', () => {
