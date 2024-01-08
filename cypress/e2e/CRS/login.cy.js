@@ -68,7 +68,7 @@
 
 const crsURl = "192.168.50.161/login-client"
 
-    it.only('within example with const included', () => {
+    it('within example with const included', () => {
 
         cy.visit(crsURl)
 
