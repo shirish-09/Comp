@@ -7,4 +7,11 @@ module.exports = defineConfig({
     specPattern : 'cypress/e2e/**/*.{js,jsx,ts,tsx}',
 
   },
+
+  env: {
+    clientcode : '012',
+    username: 'prakriti@yopmail.com',
+    password: 'Test@123'
+  }
+
 });

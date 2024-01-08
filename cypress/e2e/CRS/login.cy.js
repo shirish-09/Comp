@@ -1,3 +1,6 @@
+///<reference types = "cypress"/>
+
+
 // describe('Login', () => {
 
 //     beforeEach(() => {
@@ -67,16 +70,54 @@
 //------------------------------------- Third class----------------------------------------------------------
 
 const crsURl = "192.168.50.161/login-client"
+const clientcode = Cypress.env('clientcode')
+const username = Cypress.env('username')
+const password = Cypress.env('password')
 
-    it('within example with const included', () => {
+    it('const,network interceptor(json),within,dropdown,environment,photo-attach', () => {
 
+       
+       
+       //pre login network interceptor (json)
+        cy.intercept('GET','http://192.168.50.161/login-client').as('prelogin')
+        // cy.visit(Cypress.env('staging_url'))
+       
+       //using const
         cy.visit(crsURl)
 
-        cy.get('.mt-6').eq(0).within(()=>{
+       
+        cy.get('[name= "clientCode"]').type(clientcode)
+        cy.get('.right-3').eq(2).click()
+        cy.get('[name= "username"]').type(username)
+        cy.get('[name= "password"]').type(password)
+        cy.get('.w-full').eq(8).click()
+        cy.wait('@prelogin')
 
-            cy.get('.px-3').should('exist')
-            cy.get('.w-full').should('exist')
+        //cy.intercept('POST','http://192.168.50.161:8070/login').as('postlogin')
+        //cy.wait('@postlogin')
 
-     })
+//dropdown
+        cy.get('.text-start').eq(5).click()
+        cy.get('.css-9jkw19').eq(0).click().type('esewa')
+
+
     
-    });
+        // cy.get('.mt-6').eq(0).within(()=>{
+
+        //     cy.get('.px-3').should('exist')
+        //     cy.get('.w-full').should('exist')
+           
+    //  })
+
+    })
+
+
+      
+    
+
+       
+
+
+    
+
+  
