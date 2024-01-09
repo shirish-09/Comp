@@ -73,7 +73,6 @@ const crsURl = "192.168.50.161/login-client"
 const clientcode = Cypress.env('clientcode')
 const username = Cypress.env('username')
 const password = Cypress.env('password')
-
     it('const,network interceptor(json),within,dropdown,environment,photo-attach', () => {
 
        
@@ -93,21 +92,40 @@ const password = Cypress.env('password')
         cy.get('.w-full').eq(8).click()
         cy.wait('@prelogin')
 
-        //cy.intercept('POST','http://192.168.50.161:8070/login').as('postlogin')
-        //cy.wait('@postlogin')
+        cy.intercept('GET','http://192.168.50.161:8070/communication/api/v1/notifications/get-all').as('postlogin')
+        cy.wait('@postlogin')
 
 //dropdown
         cy.get('.text-start').eq(5).click()
-        cy.get('.css-9jkw19').eq(0).click().type('esewa')
+        cy.get('#react-select-2-option-0').eq(1).click()
 
 
     
-        // cy.get('.mt-6').eq(0).within(()=>{
+         cy.get('.mt-6').eq(0).within(()=>{
 
-        //     cy.get('.px-3').should('exist')
-        //     cy.get('.w-full').should('exist')
+            cy.get('.px-3').should('exist')
+            cy.get('.w-full').should('exist')
            
-    //  })
+     })
+   
+
+//file upload
+        cy.visit("https://the-internet.herokuapp.com/upload")
+        cy.get("#file-upload").selectFile("cypress/fixtures/test.avif")
+      //for drag and drop  (add npm install --save-dev cypress-file-upload and import 'cypress-file-upload' in command.js;)
+        //drag and drop
+        
+            cy.visit("https://the-internet.herokuapp.com/upload")
+            cy.get("#drag-drop-upload").attachFile("/test.avif", { subjectType: 'drag-n-drop' })
+
+            //attach file
+            
+                cy.visit("https://the-internet.herokuapp.com/upload")
+                cy.get("#file-upload").attachFile("/test.avif") 
+                
+                
+           
+
 
     })
 
