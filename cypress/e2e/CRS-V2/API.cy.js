@@ -14,7 +14,7 @@ it('Using then', () => {
 });
 
 
-it('GET', () => {
+it.only('GET', () => {
     cy.request({
         method : "GET",
         url : "https://jsonplaceholder.typicode.com/comments"
