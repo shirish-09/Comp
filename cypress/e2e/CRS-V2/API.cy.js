@@ -14,9 +14,6 @@ it('Using then', () => {
 });
 
 
-
-
-
 it('GET', () => {
     cy.request({
         method : "GET",
@@ -31,7 +28,7 @@ it('GET', () => {
 
 });
 
-it('GET', () => {
+it.only('GET', () => {
     
     cy.request({
         method : "GET",
