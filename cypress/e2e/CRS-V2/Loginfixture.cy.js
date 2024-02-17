@@ -1,4 +1,4 @@
-const neatCsv = require("neat-csv");
+const csv = require("neat-csv");
 
 it.only('Login with one data in fixture', () => {
 

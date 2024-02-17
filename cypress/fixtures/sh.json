@@ -2,5 +2,7 @@
 {
     "case":"Login with one data in fixture",
     "Username" : "admin ",
-    "Password" : "admin"
+    "Password" : "admin",
+    "abc" : "#logout2",
+    "message":"Log out"
 }
