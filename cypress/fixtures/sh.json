@@ -1,0 +1,6 @@
+
+{
+    "case":"Login with one data in fixture",
+    "Username" : "admin ",
+    "Password" : "admin"
+}
