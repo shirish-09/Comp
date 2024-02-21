@@ -19,7 +19,7 @@ describe('Superadmin Login', () => {
  describe('Tenant Login', () => {
 
     beforeEach('Tenant ', () => {
-        
+
         cy.visit('http://192.168.50.161/login-client')
     })
 
